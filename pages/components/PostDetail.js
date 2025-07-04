@@ -1,6 +1,23 @@
 import { format } from 'date-fns';
 
 export default function PostDetail({ post, onClose }) {
+  if (!post) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-white/30 px-4 sm:px-6">
+        <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md p-6 text-center text-gray-600">
+          <button
+            onClick={onClose}
+            className="absolute top-5 right-5 text-gray-400 hover:text-black text-2xl transition-colors"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+          <p className="text-lg font-medium">Something went wrong. Post not found.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-white/30 px-4 sm:px-6">
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-3xl p-8 relative animate-fade-in">
