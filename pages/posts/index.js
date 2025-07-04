@@ -22,7 +22,7 @@ export default function Page({ posts }) {
           Blog Posts
         </h1>
 
-        <PostList posts={posts} onPostClick={handlePostClick} />
+        <PostList posts={posts} onPostClick={handlePostClick}/>
 
         {selectedPost && <PostDetail post={selectedPost} onClose={closeModal} />}
       </div>

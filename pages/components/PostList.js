@@ -1,4 +1,12 @@
-export default function PostList({ posts, onPostClick }) {
+export default function PostList({ posts, onPostClick}) {
+  if (!posts?.length) {
+    return (
+      <div className="text-center text-gray-500 text-lg mt-12">
+        No blog posts found.
+      </div>
+    );
+  }
+
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {posts.map((post) => (
